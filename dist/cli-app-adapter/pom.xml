@@ -34,13 +34,11 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!-- Starters -->
-        <!--<dependency>-->
-            <!--<groupId>org.springframework.boot</groupId>-->
-            <!--<artifactId>spring-boot-starter-logging</artifactId>-->
-        <!--</dependency>-->
-
-
+        <!-- logging -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
 
         <!-- javax.validation (JSR-303) -->
         <dependency>

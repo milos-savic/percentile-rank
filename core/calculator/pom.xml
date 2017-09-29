@@ -13,7 +13,7 @@
 
     <artifactId>calculator</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>Percentile Rank Calculator</name>
+    <name>Percentile Rank Calculator Component</name>
     <packaging>jar</packaging>
 
     <dependencies>
