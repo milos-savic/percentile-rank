@@ -87,5 +87,6 @@
         <module>dependencies</module>
         <module>core/calculator</module>
         <module>core/calculator-api</module>
+        <module>dist</module>
     </modules>
 </project>
