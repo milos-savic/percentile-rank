@@ -2,8 +2,8 @@ package by.modus.percentilerank.dto;
 
 public class PercentileRankDto implements PercentileRank {
 
-    private Score score;
-    private double percentileRank;
+    private final Score score;
+    private final double percentileRank;
 
     public PercentileRankDto(Score score, double percentileRank) {
         this.score = score;

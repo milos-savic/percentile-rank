@@ -5,10 +5,10 @@ import by.modus.percentilerank.dto.Score;
 import java.util.List;
 
 class PercentileRankFnArg {
-    private Score score;
-    private List<? extends Score> allScores;
-    private long countLess;
-    private double frequency;
+    private final Score score;
+    private final List<? extends Score> allScores;
+    private final long countLess;
+    private final double frequency;
 
     PercentileRankFnArg(Score score, List<? extends Score> allScores) {
         this.score = score;

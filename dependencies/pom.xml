@@ -41,6 +41,13 @@
                 <version>${logback.version}</version>
             </dependency>
 
+            <!-- dependency injection-->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>5.0.0.RELEASE</version>
+            </dependency>
+
 
             <!-- javax.validation (JSR-303) -->
             <dependency>
@@ -51,21 +58,9 @@
 
             <!-- Utilities -->
             <dependency>
-                <groupId>com.google.guava</groupId>
-                <artifactId>guava</artifactId>
-                <version>19.0</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-lang3</artifactId>
-                <version>3.4</version>
-            </dependency>
-
-            <dependency>
-                <groupId>commons-beanutils</groupId>
-                <artifactId>commons-beanutils</artifactId>
-                <version>1.9.3</version>
+                <groupId>com.opencsv</groupId>
+                <artifactId>opencsv</artifactId>
+                <version>4.0</version>
             </dependency>
 
         </dependencies>
