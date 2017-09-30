@@ -10,8 +10,6 @@ public interface PercentileRankCalculator<T extends Score, R extends PercentileR
     /**
      * Calculate percentile ranks base on <a href="https://en.wikipedia.org/wiki/Percentile_rank"/>
      *
-     * @param scores
-     * @return
      */
-    List<R> calculatePercentileRanks(@NotNull List<T> scores);
+    List<? extends R> calculatePercentileRanks(@NotNull List<? extends T> scores);
 }
