@@ -12,7 +12,7 @@ class PercentileRankFunction {
         int N = input.sampleSize();
         long countLess = input.getCountLess();
         double f = input.getFrequency();
-        double percentileRank = ((countLess + 0.5*f)/N) * 100;
+        int percentileRank = (int)Math.rint(((countLess + 0.5*f)/N) * 100);
         return new PercentileRankDto(input.getScorable(), percentileRank);
     };
 }

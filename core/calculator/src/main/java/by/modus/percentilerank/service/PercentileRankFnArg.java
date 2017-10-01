@@ -8,7 +8,7 @@ class PercentileRankFnArg {
     private final Scorable scorable;
     private final List<? extends Scorable> allScores;
     private final long countLess;
-    private final double frequency;
+    private final long frequency;
 
     PercentileRankFnArg(Scorable scorable, List<? extends Scorable> allScores) {
         this.scorable = scorable;
@@ -29,9 +29,8 @@ class PercentileRankFnArg {
      * The frequency of the scorable of interest.
      *
      */
-    private double frequency() {
-        long f = allScores.parallelStream().filter(sc -> sc.getScore() == scorable.getScore()).count();
-        return f / allScores.size();
+    private long frequency() {
+        return allScores.parallelStream().filter(sc -> sc.getScore() == scorable.getScore()).count();
     }
 
     Scorable getScorable() {

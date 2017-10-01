@@ -9,9 +9,9 @@ public class StudentWithPercentileRank{
     @CsvBindByPosition(position = 1, required = true)
     private final double gpa;
     @CsvBindByPosition(position = 2, required = true)
-    private final double percentileRank;
+    private final int percentileRank;
 
-    public StudentWithPercentileRank(String name, double gpa, double percentileRank) {
+    public StudentWithPercentileRank(String name, double gpa, int percentileRank) {
         this.name = name;
         this.gpa = gpa;
         this.percentileRank = percentileRank;
@@ -25,7 +25,7 @@ public class StudentWithPercentileRank{
         return gpa;
     }
 
-    public double getPercentileRank() {
+    public int getPercentileRank() {
         return percentileRank;
     }
 }
