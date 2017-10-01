@@ -17,38 +17,11 @@
     <packaging>pom</packaging>
 
     <properties>
-        <slf4j.version>1.8.0-alpha2</slf4j.version>
-        <logback.version>1.2.3</logback.version>
+        <org.slf4j-version>>1.8.0-alpha2</org.slf4j-version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
-
-            <!-- logging -->
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-api</artifactId>
-                <version>${slf4j.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>ch.qos.logback</groupId>
-                <artifactId>logback-classic</artifactId>
-                <version>${logback.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>ch.qos.logback</groupId>
-                <artifactId>logback-core</artifactId>
-                <version>${logback.version}</version>
-            </dependency>
-
-            <!-- dependency injection-->
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-context</artifactId>
-                <version>5.0.0.RELEASE</version>
-            </dependency>
-
-
             <!-- javax.validation (JSR-303) -->
             <dependency>
                 <groupId>javax.validation</groupId>

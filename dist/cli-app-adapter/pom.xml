@@ -17,6 +17,7 @@
     <packaging>jar</packaging>
 
     <properties>
+        <application.name>percentile-rank-calculator</application.name>
         <logback.loglevel>DEBUG</logback.loglevel>
     </properties>
 
@@ -34,17 +35,22 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!-- logging -->
+        <!-- Starter -->
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
         </dependency>
 
-        <!-- dependency injection -->
+        <!-- logging -->
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
         </dependency>
+
+        <!--<dependency>-->
+            <!--<groupId>org.slf4j</groupId>-->
+            <!--<artifactId>slf4j-api</artifactId>-->
+        <!--</dependency>-->
 
         <!-- javax.validation (JSR-303) -->
         <dependency>
@@ -61,35 +67,15 @@
     </dependencies>
 
     <build>
-        <!-- war name without version -->
-        <finalName>${project.artifactId}</finalName>
-        <defaultGoal>spring-boot:run</defaultGoal>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-                <includes>
-                    <include>**/*.properties</include>
-                    <include>**/*.xml</include>
-                </includes>
-            </resource>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>false</filtering>
-                <excludes>
-                    <exclude>**/*.properties</exclude>
-                    <exclude>**/*.xml</exclude>
-                </excludes>
-            </resource>
-        </resources>
+        <!-- executable jar name without version -->
+        <finalName>${application.name}</finalName>
 
         <plugins>
-
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <useDefaultDelimiters>true</useDefaultDelimiters>
+                    <executable>true</executable>
                 </configuration>
             </plugin>
         </plugins>

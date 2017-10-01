@@ -12,12 +12,6 @@ public class Student implements Score {
     @CsvCustomBindByPosition(position = 2, required = true, converter = GpaConverter.class)
     private double gpa;
 
-    public Student(String id, String name, double gpa) {
-        this.id = id;
-        this.name = name;
-        this.gpa = gpa;
-    }
-
     @Override
     public double getScore() {
         return gpa;

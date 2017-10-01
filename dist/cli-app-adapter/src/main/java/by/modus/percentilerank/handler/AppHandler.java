@@ -4,13 +4,19 @@ import by.modus.percentilerank.data.Student;
 import by.modus.percentilerank.data.StudentWithPercentileRank;
 import by.modus.percentilerank.facade.PercentileRankCalculator;
 import com.opencsv.bean.CsvToBeanBuilder;
+import com.opencsv.bean.StatefulBeanToCsv;
+import com.opencsv.bean.StatefulBeanToCsvBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Writer;
 import java.util.List;
 
-class AppHandler {
+@Component
+public class AppHandler {
 
     @Autowired
     private PercentileRankCalculator<Student, StudentWithPercentileRank> percentileRankCalculator;
@@ -31,6 +37,12 @@ class AppHandler {
     }
 
     private void serveResponse(List<StudentWithPercentileRank> processedData, String outputFilePath) {
-
+        try (Writer writer = new FileWriter(outputFilePath)) {
+            StatefulBeanToCsv<StudentWithPercentileRank> beanToCsv = new StatefulBeanToCsvBuilder<StudentWithPercentileRank>(writer).build();
+            beanToCsv.write(processedData);
+            writer.close();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }
