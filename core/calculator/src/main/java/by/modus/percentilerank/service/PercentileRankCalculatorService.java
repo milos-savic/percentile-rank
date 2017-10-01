@@ -6,11 +6,10 @@ import by.modus.percentilerank.dto.Scorable;
 import by.modus.percentilerank.facade.PercentileRankCalculator;
 import org.springframework.stereotype.Service;
 
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Map;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import static by.modus.percentilerank.service.PercentileRankFunction.PERCENTILE_RANK_FUNCTION;
@@ -19,7 +18,7 @@ import static by.modus.percentilerank.service.PercentileRankFunction.PERCENTILE_
 public class PercentileRankCalculatorService implements PercentileRankCalculator<Scorable, PercentileRank> {
 
     @Override
-    public List<PercentileRank> calculatePercentileRanks(List<? extends Scorable> scores) {
+    public List<PercentileRank> calculatePercentileRanks(@NotNull(message = "Scoring sample is NULL!") List<? extends Scorable> scores) {
         if (scores.isEmpty()) {
             return new ArrayList<>();
         }
