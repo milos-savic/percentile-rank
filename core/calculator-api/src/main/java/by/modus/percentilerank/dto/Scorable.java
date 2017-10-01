@@ -1,5 +1,7 @@
 package by.modus.percentilerank.dto;
 
-public interface Score {
+public interface Scorable {
+    String getName();
+
     double getScore();
 }

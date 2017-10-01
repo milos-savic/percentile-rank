@@ -2,7 +2,7 @@ package by.modus.percentilerank.service;
 
 import by.modus.percentilerank.dto.PercentileRank;
 import by.modus.percentilerank.dto.PercentileRankDto;
-import by.modus.percentilerank.dto.Score;
+import by.modus.percentilerank.dto.Scorable;
 import by.modus.percentilerank.facade.PercentileRankCalculator;
 import org.springframework.stereotype.Service;
 
@@ -13,11 +13,11 @@ import java.util.stream.Collectors;
 
 import static by.modus.percentilerank.service.PercentileRankFunction.PERCENTILE_RANK_FUNCTION;
 
-@Service
-class PercentileRankCalculatorService implements PercentileRankCalculator<Score, PercentileRank> {
+@Service("percentileRankCalculatorService")
+public class PercentileRankCalculatorService implements PercentileRankCalculator<Scorable, PercentileRank> {
 
     @Override
-    public List<PercentileRank> calculatePercentileRanks(List<? extends Score> scores) {
+    public List<PercentileRank> calculatePercentileRanks(List<? extends Scorable> scores) {
         if (scores.isEmpty()) {
             return new ArrayList<>();
         }
@@ -25,7 +25,7 @@ class PercentileRankCalculatorService implements PercentileRankCalculator<Score,
             return Collections.singletonList(new PercentileRankDto(scores.get(0), 50));
         }
 
-        List<PercentileRankFnArg> inputArgs = scores.parallelStream().map(sc -> new PercentileRankFnArg(sc, scores)).collect(Collectors.toList());
-        return inputArgs.parallelStream().map(PERCENTILE_RANK_FUNCTION).collect(Collectors.toList());
+        List<PercentileRankFnArg> inputArgs = scores.stream().map(sc -> new PercentileRankFnArg(sc, scores)).collect(Collectors.toList());
+        return inputArgs.stream().map(PERCENTILE_RANK_FUNCTION).collect(Collectors.toList());
     }
 }

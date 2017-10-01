@@ -27,6 +27,7 @@
             <groupId>by.modus.percentile-rank</groupId>
             <artifactId>calculator-api</artifactId>
             <version>${project.version}</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>by.modus.percentile-rank</groupId>
@@ -47,11 +48,6 @@
             <artifactId>spring-boot-starter-logging</artifactId>
         </dependency>
 
-        <!--<dependency>-->
-            <!--<groupId>org.slf4j</groupId>-->
-            <!--<artifactId>slf4j-api</artifactId>-->
-        <!--</dependency>-->
-
         <!-- javax.validation (JSR-303) -->
         <dependency>
             <groupId>javax.validation</groupId>
@@ -69,14 +65,12 @@
     <build>
         <!-- executable jar name without version -->
         <finalName>${application.name}</finalName>
+        <defaultGoal>spring-boot:run</defaultGoal>
 
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <executable>true</executable>
-                </configuration>
             </plugin>
         </plugins>
     </build>

@@ -1,7 +1,7 @@
 # Percentile Rank Calculator
 
 Application calculates percentile rank (https://en.wikipedia.org/wiki/Percentile_rank) 
-based on the GPA (=the score of interest).<br/>
+based on the GPA (=the scorable of interest).<br/>
 Input data is provided in a comma-separated format where the columns are ID, name, and GPA,
 in this order.<br/>
 The program output should contain the student name, GPA and

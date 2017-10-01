@@ -1,41 +1,41 @@
 package by.modus.percentilerank.service;
 
-import by.modus.percentilerank.dto.Score;
+import by.modus.percentilerank.dto.Scorable;
 
 import java.util.List;
 
 class PercentileRankFnArg {
-    private final Score score;
-    private final List<? extends Score> allScores;
+    private final Scorable scorable;
+    private final List<? extends Scorable> allScores;
     private final long countLess;
     private final double frequency;
 
-    PercentileRankFnArg(Score score, List<? extends Score> allScores) {
-        this.score = score;
+    PercentileRankFnArg(Scorable scorable, List<? extends Scorable> allScores) {
+        this.scorable = scorable;
         this.allScores = allScores;
         countLess = countLess();
         frequency = frequency();
     }
 
     /**
-     * The count of all scores less than the score of interest.
+     * The count of all scores less than the scorable of interest.
      *
      */
     private long countLess() {
-        return allScores.parallelStream().filter(sc -> sc.getScore() < score.getScore()).count();
+        return allScores.parallelStream().filter(sc -> sc.getScore() < scorable.getScore()).count();
     }
 
     /**
-     * The frequency of the score of interest.
+     * The frequency of the scorable of interest.
      *
      */
     private double frequency() {
-        long f = allScores.parallelStream().filter(sc -> sc.getScore() == score.getScore()).count();
+        long f = allScores.parallelStream().filter(sc -> sc.getScore() == scorable.getScore()).count();
         return f / allScores.size();
     }
 
-    Score getScore() {
-        return score;
+    Scorable getScorable() {
+        return scorable;
     }
 
     long getCountLess() {

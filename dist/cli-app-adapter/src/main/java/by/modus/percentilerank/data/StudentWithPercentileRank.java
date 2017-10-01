@@ -1,24 +1,30 @@
 package by.modus.percentilerank.data;
 
-import by.modus.percentilerank.dto.PercentileRank;
-import by.modus.percentilerank.dto.Score;
+import com.opencsv.bean.CsvBindByPosition;
 
-public class StudentWithPercentileRank implements PercentileRank{
+public class StudentWithPercentileRank{
 
-    private final Student student;
+    @CsvBindByPosition(position = 0, required = true)
+    private final String name;
+    @CsvBindByPosition(position = 1, required = true)
+    private final double gpa;
+    @CsvBindByPosition(position = 2, required = true)
     private final double percentileRank;
 
-    public StudentWithPercentileRank(Student student, double percentileRank) {
-        this.student = student;
+    public StudentWithPercentileRank(String name, double gpa, double percentileRank) {
+        this.name = name;
+        this.gpa = gpa;
         this.percentileRank = percentileRank;
     }
 
-    @Override
-    public Score getScore() {
-        return student;
+    public String getName() {
+        return name;
     }
 
-    @Override
+    public double getGpa() {
+        return gpa;
+    }
+
     public double getPercentileRank() {
         return percentileRank;
     }

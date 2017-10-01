@@ -1,10 +1,10 @@
 package by.modus.percentilerank.data;
 
-import by.modus.percentilerank.dto.Score;
+import by.modus.percentilerank.dto.Scorable;
 import com.opencsv.bean.CsvBindByPosition;
 import com.opencsv.bean.CsvCustomBindByPosition;
 
-public class Student implements Score {
+public class Student implements Scorable {
     @CsvBindByPosition(position = 0, required = true)
     private String id;
     @CsvBindByPosition(position = 1, required = true)
@@ -17,14 +17,15 @@ public class Student implements Score {
         return gpa;
     }
 
-    public String getId() {
-        return id;
-    }
+//    public String getId() {
+//        return id;
+//    }
 
     public void setId(String id) {
         this.id = id;
     }
 
+    @Override
     public String getName() {
         return name;
     }
@@ -33,9 +34,9 @@ public class Student implements Score {
         this.name = name;
     }
 
-    public double getGpa() {
-        return gpa;
-    }
+//    public double getGpa() {
+//        return gpa;
+//    }
 
     public void setGpa(double gpa) {
         this.gpa = gpa;

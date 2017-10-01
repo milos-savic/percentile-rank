@@ -13,6 +13,6 @@ class PercentileRankFunction {
         long countLess = input.getCountLess();
         double f = input.getFrequency();
         double percentileRank = ((countLess + 0.5*f)/N) * 100;
-        return new PercentileRankDto(input.getScore(), percentileRank);
+        return new PercentileRankDto(input.getScorable(), percentileRank);
     };
 }

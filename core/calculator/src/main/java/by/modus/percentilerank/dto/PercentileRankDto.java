@@ -2,17 +2,17 @@ package by.modus.percentilerank.dto;
 
 public class PercentileRankDto implements PercentileRank {
 
-    private final Score score;
+    private final Scorable scorable;
     private final double percentileRank;
 
-    public PercentileRankDto(Score score, double percentileRank) {
-        this.score = score;
+    public PercentileRankDto(Scorable scorable, double percentileRank) {
+        this.scorable = scorable;
         this.percentileRank = percentileRank;
     }
 
     @Override
-    public Score getScore() {
-        return score;
+    public Scorable getScorable() {
+        return scorable;
     }
 
     @Override

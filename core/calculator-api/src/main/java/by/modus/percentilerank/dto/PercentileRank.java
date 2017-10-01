@@ -1,7 +1,7 @@
 package by.modus.percentilerank.dto;
 
 public interface PercentileRank {
-    Score getScore();
+    Scorable getScorable();
 
     double getPercentileRank();
 }
