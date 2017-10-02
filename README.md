@@ -23,19 +23,10 @@ calculated percentile rank.
 
 4) Run application 
     
-    java MainClass.java -input.csv
+    java -jar /dist/cli-app-adapter/target/percentile-rank-calculator.jar ${INPUT_FILE_PATH} ${OUTPUT_FILE_PATH}
     
-
-############################################################
-## Instructions for development process
-
-### Packaging to executable archive
-
-    mvn clean package
-
-To ensure everything worked, run:
-
-    java -jar target/PercentileRankCalc-Fat.jar
-
+    Replace INPUT_FILE_PATH with path to csv file with student data.
+    Replace OUTPUT_FILE_PATH with path to file where percentile ranks will be stored.
+    
 
 
