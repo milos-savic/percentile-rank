@@ -53,4 +53,8 @@ public class AppHandler {
             throw new RuntimeException(e);
         }
     }
+
+    void setPercentileRankCalculator(PercentileRankCalculator<Scorable, PercentileRank> percentileRankCalculator) {
+        this.percentileRankCalculator = percentileRankCalculator;
+    }
 }
