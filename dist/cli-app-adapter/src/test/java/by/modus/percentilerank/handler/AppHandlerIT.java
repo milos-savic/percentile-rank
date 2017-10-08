@@ -13,7 +13,7 @@ import java.util.List;
 
 public class AppHandlerIT {
 
-    @Test(enabled = false)
+    @Test
     public void handleIT() {
         String inputFilePath = "intput.csv";
         String outputFilePath = "output.csv";
@@ -35,7 +35,7 @@ public class AppHandlerIT {
             Assert.assertEquals(expectedLine, actualLine);
         }
 
-        housekeep(inputFilePath, outputFilePath);
+        housekeeping(inputFilePath, outputFilePath);
 
     }
 
@@ -67,7 +67,7 @@ public class AppHandlerIT {
         }
     }
 
-    private void housekeep(String inputFilePath, String outputFilePath) {
+    private void housekeeping(String inputFilePath, String outputFilePath) {
         File inputF = new File(inputFilePath);
         inputF.delete();
 
