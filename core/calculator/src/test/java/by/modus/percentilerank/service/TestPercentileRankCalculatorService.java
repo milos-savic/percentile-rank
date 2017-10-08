@@ -13,7 +13,7 @@ import java.util.List;
 
 public class TestPercentileRankCalculatorService {
 
-    private PercentileRankCalculatorService calculator = new PercentileRankCalculatorService();
+    private final PercentileRankCalculatorService calculator = new PercentileRankCalculatorService();
 
     @Test(expectedExceptions = NullPointerException.class)
     public void testCalculatePercentileRanks_Null_Input() {
@@ -46,8 +46,8 @@ public class TestPercentileRankCalculatorService {
     }
 
     class TScore implements Scorable {
-        private String name;
-        private double score;
+        private final String name;
+        private final double score;
 
         TScore(String name, double score) {
             this.name = name;

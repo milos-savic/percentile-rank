@@ -17,10 +17,6 @@ public class Student implements Scorable {
         return gpa;
     }
 
-//    public String getId() {
-//        return id;
-//    }
-
     public void setId(String id) {
         this.id = id;
     }
@@ -33,10 +29,6 @@ public class Student implements Scorable {
     public void setName(String name) {
         this.name = name;
     }
-
-//    public double getGpa() {
-//        return gpa;
-//    }
 
     public void setGpa(double gpa) {
         this.gpa = gpa;

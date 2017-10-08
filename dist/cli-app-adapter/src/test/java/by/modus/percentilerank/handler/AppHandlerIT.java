@@ -3,6 +3,8 @@ package by.modus.percentilerank.handler;
 import by.modus.percentilerank.service.PercentileRankCalculatorService;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -13,9 +15,11 @@ import java.util.List;
 
 public class AppHandlerIT {
 
+    private final static Logger log = LoggerFactory.getLogger(AppHandlerIT.class);
+
     @Test
     public void handleIT() {
-        String inputFilePath = "intput.csv";
+        String inputFilePath = "input.csv";
         String outputFilePath = "output.csv";
         createInputFile(inputFilePath);
         List<String[]> expectedOutputFileContent = Arrays.asList(new String[]{"John", "3.5", "60"},
@@ -69,9 +73,14 @@ public class AppHandlerIT {
 
     private void housekeeping(String inputFilePath, String outputFilePath) {
         File inputF = new File(inputFilePath);
-        inputF.delete();
+        if (!inputF.delete()) {
+            log.error("Deleting {} failed", inputFilePath);
+        }
 
         File outputF = new File(inputFilePath);
-        outputF.delete();
+
+        if (!outputF.delete()) {
+            log.error("Deleting {} failed", outputFilePath);
+        }
     }
 }

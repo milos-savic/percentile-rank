@@ -10,8 +10,8 @@ import java.util.List;
 public class TestPercentileRankFnArg {
 
     class Score implements Scorable {
-        private String name;
-        private double score;
+        private final String name;
+        private final double score;
 
         Score(String name, double score) {
             this.name = name;
